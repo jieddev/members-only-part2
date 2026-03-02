@@ -21,9 +21,15 @@
   <h3>Post #<%=count%></h3>
   <%= post.title %> <br>
   <%= post.content%> <br> 
+  <% if user_signed_in? %>
+  <p>Email: <%= post.user&.email%></p>
 
+  <%end%>
 <%end%>
 
 <br>
 
-<%= button_to "Log out", destroy_user_session_path, method: :delete%>
+<%= button_to "Log out", destroy_user_session_path, method: :delete %>
+
+
+<%# <%= button_to "Log out", posts_path, method: :delete %> 
